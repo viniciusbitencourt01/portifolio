@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Portfólio de Vinícius</title>
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary-color: #4a90e2;
+      --background: #f5f7fa;
+      --text-color: #333;
+      --card-bg: #ffffff;
+      --shadow: rgba(0, 0, 0, 0.1);
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background-color: var(--background);
+      color: var(--text-color);
+      line-height: 1.6;
+    }
+
+    header {
+      background-color: var(--primary-color);
+      color: #fff;
+      text-align: center;
+      padding: 2.5rem 1rem;
+    }
+
+    header .hero-img {
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 4px solid #fff;
+      margin-bottom: 1rem;
+    }
+
+    header h1 {
+      font-size: 2.5rem;
+      font-weight: 600;
+      margin-bottom: 0.25rem;
+    }
+
+    header p {
+      font-weight: 300;
+      font-size: 1rem;
+    }
+
+    main {
+      max-width: 960px;
+      margin: 2rem auto;
+      padding: 0 1rem;
+    }
+
+    section + section {
+      margin-top: 3rem;
+    }
+
+    h2 {
+      font-size: 1.75rem;
+      margin-bottom: 1rem;
+      color: var(--primary-color);
+      border-bottom: 3px solid var(--primary-color);
+      display: inline-block;
+    }
+
+    .project-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 1.5rem;
+      margin-top: 1rem;
+    }
+
+    .project-card {
+      background-color: var(--card-bg);
+      border-radius: 8px;
+      box-shadow: 0 4px 12px var(--shadow);
+      overflow: hidden;
+      transition: transform 0.2s ease;
+    }
+
+    .project-card:hover {
+      transform: translateY(-5px);
+    }
+
+    .project-card img {
+      width: 100%;
+      display: block;
+    }
+
+    .project-card h3 {
+      font-size: 1.25rem;
+      margin: 1rem;
+      color: var(--primary-color);
+    }
+
+    .project-card p {
+      margin: 0 1rem 1rem;
+      font-size: 0.95rem;
+    }
+
+    .project-card a {
+      display: inline-block;
+      margin: 0 1rem 1rem;
+      padding: 0.5rem 1rem;
+      background-color: var(--primary-color);
+      color: #fff;
+      border-radius: 4px;
+      text-decoration: none;
+      font-weight: 500;
+      font-size: 0.9rem;
+    }
+
+    #contact p {
+      margin-bottom: 0.5rem;
+    }
+
+    footer {
+      text-align: center;
+      padding: 2rem 1rem;
+      margin-top: 4rem;
+      background-color: var(--card-bg);
+      font-size: 0.85rem;
+      color: var(--text-color);
+      border-top: 1px solid #ddd;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <img src="https://via.placeholder.com/120" 
+         alt="Vinícius sorrindo em frente ao computador" 
+         class="hero-img" />
+    <h1>Vinícius</h1>
+    <p>Estudante de programação em estágio inicial</p>
+  </header>
+
+  <main>
+    <!-- Projetos -->
+    <section id="projects">
+      <h2>Meus Projetos</h2>
+      <div class="project-grid">
+        <div class="project-card">
+          <img src="https://via.placeholder.com/300x200" 
+               alt="Interface do ToDo App mostrando lista de tarefas" />
+          <h3>ToDo List App</h3>
+          <p>
+            Um aplicativo para gerenciar tarefas diárias. 
+            O usuário pode adicionar, marcar como concluída e remover itens. 
+            Feito com HTML, CSS e JavaScript Vanilla.
+          </p>
+          <a href="#">Ver Projeto</a>
+        </div>
+        <div class="project-card">
+          <img src="https://via.placeholder.com/300x200" 
+               alt="Dashboard de previsão do tempo mostrando condição do clima" />
+          <h3>Weather Dashboard</h3>
+          <p>
+            Painel de previsão do tempo que consome API pública. 
+            Exibe dados como temperatura, umidade e ícone do clima. 
+            Desenvolvido em JavaScript e CSS Grid.
+          </p>
+          <a href="#">Ver Demo</a>
+        </div>
+        <div class="project-card">
+          <img src="https://via.placeholder.com/300x200" 
+               alt="Página inicial de um blog pessoal com postagens" />
+          <h3>Blog Pessoal</h3>
+          <p>
+            Blog estático para compartilhar aprendizados de programação. 
+            Inclui homepage, página de posts e formulário de contato fictício. 
+            Criado com HTML e CSS Flexbox.
+          </p>
+          <a href="#">Ler Mais</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Sobre Mim -->
+    <section id="about">
+      <h2>Sobre Mim</h2>
+      <p>
+        Olá! Eu sou o Vinícius, apaixonado por lógica e solução de problemas. 
+        No meu estágio inicial, estou mergulhando em JavaScript, aprendendo Git/GitHub 
+        e experimentando frameworks leves. Adoro transformar ideias em protótipos funcionais.
+      </p>
+    </section>
+
+    <!-- Contato -->
+    <section id="contact">
+      <h2>Contato</h2>
+      <p>Email: vinicius.dev@example.com</p>
+      <p>LinkedIn: <a href="#">linkedin.com/in/vinicius-dev</a></p>
+    </section>
+  </main>
+
+  <footer>
+    © 2024 Vinícius — Feito com 💙 e muito café
+  </footer>
+
+<!-- Code injected by live-server -->
+<script>
+	// <![CDATA[  <-- For SVG support
+	if ('WebSocket' in window) {
+		(function () {
+			function refreshCSS() {
+				var sheets = [].slice.call(document.getElementsByTagName("link"));
+				var head = document.getElementsByTagName("head")[0];
+				for (var i = 0; i < sheets.length; ++i) {
+					var elem = sheets[i];
+					var parent = elem.parentElement || head;
+					parent.removeChild(elem);
+					var rel = elem.rel;
+					if (elem.href && typeof rel != "string" || rel.length == 0 || rel.toLowerCase() == "stylesheet") {
+						var url = elem.href.replace(/(&|\?)_cacheOverride=\d+/, '');
+						elem.href = url + (url.indexOf('?') >= 0 ? '&' : '?') + '_cacheOverride=' + (new Date().valueOf());
+					}
+					parent.appendChild(elem);
+				}
+			}
+			var protocol = window.location.protocol === 'http:' ? 'ws://' : 'wss://';
+			var address = protocol + window.location.host + window.location.pathname + '/ws';
+			var socket = new WebSocket(address);
+			socket.onmessage = function (msg) {
+				if (msg.data == 'reload') window.location.reload();
+				else if (msg.data == 'refreshcss') refreshCSS();
+			};
+			if (sessionStorage && !sessionStorage.getItem('IsThisFirstTime_Log_From_LiveServer')) {
+				console.log('Live reload enabled.');
+				sessionStorage.setItem('IsThisFirstTime_Log_From_LiveServer', true);
+			}
+		})();
+	}
+	else {
+		console.error('Upgrade your browser. This Browser is NOT supported WebSocket for Live-Reloading.');
+	}
+	// ]]>
+</script>
+</body>
+</html>
