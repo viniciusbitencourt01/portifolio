@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Site Básico com Acessibilidade</title>
+  <style>
+    /* RESET E TIPOGRAFIA */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-size: 16px;
+      font-family: Arial, sans-serif;
+      line-height: 1.5;
+      background-color: #f2f2f2;
+      color: #333;
+    }
+
+    /* LAYOUT PRINCIPAL */
+    header, main, footer {
+      max-width: 800px;
+      margin: auto;
+      padding: 1rem;
+    }
+    header {
+      background-color: #e9ecef;
+      text-align: center;
+    }
+    main {
+      min-height: 60vh;
+    }
+    footer {
+      background-color: #e9ecef;
+      text-align: center;
+    }
+
+    /* BOTÃO DE ACESSIBILIDADE */
+    .access-btn {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      z-index: 1000;
+      background-color: #d860f0;
+      color: #fff;
+      border: none;
+      border-radius: 50%;
+      width: 50px;
+      height: 50px;
+      font-size: 1.25rem;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: background-color 0.2s;
+    }
+    .access-btn:hover {
+      background-color: #0056b3;
+    }
+    /* Posicionamentos alternativos:
+    .access-btn.top-left    { top: 20px; left: 20px; right: auto; }
+    .access-btn.bottom-left { bottom: 20px; left: 20px; top: auto; }
+    .access-btn.bottom-right{ bottom: 20px; right: 20px; top: auto; left: auto; }
+    */
+
+    .access-options {
+      position: fixed;
+      top: 80px;
+      right: 20px;
+      display: none;
+      flex-direction: column;
+      background: #f74444;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+      z-index: 999;
+    }
+    .access-options.visible {
+      display: flex;
+    }
+    .access-options button {
+      background: none;
+      border: none;
+      padding: 0.75rem 1rem;
+      text-align: left;
+      width: 100%;
+      cursor: pointer;
+      font-size: 0.9rem;
+    }
+    .access-options button:hover {
+      background-color: #f8f9fa;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Meu Site Básico</h1>
+  </header>
+
+  <main>
+    <p>
+      Este exemplo demonstra um botão de acessibilidade fixo na tela.
+      Ao passar o mouse sobre ele, aparecem as opções para ajustar o tamanho da fonte.
+    </p>
+  </main>
+
+  <footer>
+    <p>© 2024 Vinícius</p>
+  </footer>
+
+  <!-- Botão de Acessibilidade -->
+  <button
+    class="access-btn"
+    id="accessBtn"
+    aria-label="Opções de acessibilidade">
+    A
+  </button>
+
+  <!-- Painel de Opções -->
+  <div
+    class="access-options"
+    id="accessOptions"
+    aria-hidden="true">
+    <button id="increaseFont">A+</button>
+    <button id="decreaseFont">A-</button>
+  </div>
+
+  <script>
+    const accessBtn     = document.getElementById('accessBtn');
+    const accessOptions = document.getElementById('accessOptions');
+    const incBtn        = document.getElementById('increaseFont');
+    const decBtn        = document.getElementById('decreaseFont');
+
+    // Mostrar/ocultar painel ao passar o mouse
+    accessBtn.addEventListener('mouseenter', () => {
+      accessOptions.classList.add('visible');
+      accessOptions.setAttribute('aria-hidden', 'false');
+    });
+    accessBtn.addEventListener('mouseleave', () => {
+      accessOptions.classList.remove('visible');
+      accessOptions.setAttribute('aria-hidden', 'true');
+    });
+    accessOptions.addEventListener('mouseenter', () => {
+      accessOptions.classList.add('visible');
+    });
+    accessOptions.addEventListener('mouseleave', () => {
+      accessOptions.classList.remove('visible');
+    });
+
+    // Funções de aumentar/diminuir fonte
+    incBtn.addEventListener('click', () => {
+      let size = parseFloat(getComputedStyle(document.body).fontSize);
+      document.body.style.fontSize = (size + 2) + 'px';
+    });
+    decBtn.addEventListener('click', () => {
+      let size = parseFloat(getComputedStyle(document.body).fontSize);
+      if (size > 8) document.body.style.fontSize = (size - 2) + 'px';
+    });
+  </script>
+
+<!-- Code injected by live-server -->
+<script>
+	// <![CDATA[  <-- For SVG support
+	if ('WebSocket' in window) {
+		(function () {
+			function refreshCSS() {
+				var sheets = [].slice.call(document.getElementsByTagName("link"));
+				var head = document.getElementsByTagName("head")[0];
+				for (var i = 0; i < sheets.length; ++i) {
+					var elem = sheets[i];
+					var parent = elem.parentElement || head;
+					parent.removeChild(elem);
+					var rel = elem.rel;
+					if (elem.href && typeof rel != "string" || rel.length == 0 || rel.toLowerCase() == "stylesheet") {
+						var url = elem.href.replace(/(&|\?)_cacheOverride=\d+/, '');
+						elem.href = url + (url.indexOf('?') >= 0 ? '&' : '?') + '_cacheOverride=' + (new Date().valueOf());
+					}
+					parent.appendChild(elem);
+				}
+			}
+			var protocol = window.location.protocol === 'http:' ? 'ws://' : 'wss://';
+			var address = protocol + window.location.host + window.location.pathname + '/ws';
+			var socket = new WebSocket(address);
+			socket.onmessage = function (msg) {
+				if (msg.data == 'reload') window.location.reload();
+				else if (msg.data == 'refreshcss') refreshCSS();
+			};
+			if (sessionStorage && !sessionStorage.getItem('IsThisFirstTime_Log_From_LiveServer')) {
+				console.log('Live reload enabled.');
+				sessionStorage.setItem('IsThisFirstTime_Log_From_LiveServer', true);
+			}
+		})();
+	}
+	else {
+		console.error('Upgrade your browser. This Browser is NOT supported WebSocket for Live-Reloading.');
+	}
+	// ]]>
+</script>
+</body>
+</html>
