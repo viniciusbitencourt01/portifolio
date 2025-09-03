@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Acessibilidade Web</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header>
+    <h1>Acessibilidade Web</h1>
+    <nav>
+      <ul>
+        <li><a href="#sobre">Sobre</a></li>
+        <li><a href="#recursos">Recursos</a></li>
+        <li><a href="#contato">Contato</a></li>
+      </ul>
+    </nav>
+    <div class="acessibilidade-controles">
+      <button id="aumenta-fonte" aria-label="Aumentar fonte">A+</button>
+      <button id="alterna-contraste" aria-label="Alternar contraste">Contraste</button>
+    </div>
+  </header>
+
+  <main>
+    <section id="sobre">
+      <h2>Sobre o Projeto</h2>
+      <p>
+        Este site foi criado com foco em acessibilidade digital, permitindo que qualquer pessoa, independentemente de suas limitações, possa navegar e obter informações com facilidade.
+      </p>
+      <img src="vasos.jpg" alt="Vasos de plantas sobre terra com uma muda nascendo" />
+    </section>
+
+    <section id="recursos">
+      <h2>Recursos de Acessibilidade</h2>
+      <ul>
+        <li>Navegação por teclado com foco visível</li>
+        <li>Botão para aumentar a fonte</li>
+        <li>Modo de alto contraste</li>
+        <li>Textos alternativos em imagens</li>
+      </ul>
+    </section>
+
+    <section id="contato">
+      <h2>Contato</h2>
+      <form>
+        <label for="nome">Nome:</label>
+        <input type="text" id="nome" aria-label="Campo para digitar seu nome" />
+
+        <label for="mensagem">Mensagem:</label>
+        <textarea id="mensagem" aria-label="Campo para digitar sua mensagem"></textarea>
+
+        <button type="submit">Enviar</button>
+      </form>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 - Desenvolvido por Vinicius</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
